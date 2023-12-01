@@ -1,26 +1,25 @@
 #!/bin/bash
-
 ############################################
 #------------ Script Variables -------------
 ############################################
 Name="Khaled El-Sayed"
 Mail="@t0ti20"
-
 ############################################
 #----------- Set Default Values ------------
 ############################################
 # Function to read input and set default values
-Set_Default_Values() {
+Set_Default_Values() 
+{
     File_Name="Test"
     Class_Name="Test"
     Namespace="Test"
     Description="This Is Default Test File For CPP Generator"
 }
-
 ############################################
 #-------- Start Generation Header ----------
 ############################################
-Generate_Header() {
+Generate_Header() 
+{
     HeaderFile="./${File_Name}.hpp"
     echo "Generating Header File: ${HeaderFile}"
 
@@ -65,7 +64,8 @@ EOL
 ############################################
 #----- Adding External Options To File -----
 ############################################
-Get_Data() {
+Get_Data() 
+{
     case $1 in
     "public")
         for Attribute in "${Added_Public_Attributes[@]}"; do
@@ -91,7 +91,8 @@ Get_Data() {
 ############################################
 #-------- Start Generation Program ---------
 ############################################
-Generate_Program() {
+Generate_Program() 
+{
     CppFile="./${File_Name}.cpp"
     echo "Generating Program File: ${CppFile}"
 
@@ -133,7 +134,8 @@ EOL
 ############################################
 #----------- External Options --------------
 ############################################
-Add_Attributes() {
+Add_Attributes() 
+{
     while true; do
         read -p "Enter attribute (<datatype> <name>): " AttributeData
         read -p "Enter attribute type (public(u)/private(v)/protected(r)): " AttributeType
@@ -164,9 +166,9 @@ Add_Attributes() {
 ############################################
 #--------- Adding External Option ----------
 ############################################
-External_Options() {
+External_Options() 
+{
     read -p "Do you want to add external options? (y/n): " ExternalOption
-
     if [[ "${ExternalOption}" == "y" || "${ExternalOption}" == "Y" ]]; then
         while true; do
             echo -e "1) Add Attributes.\n*) Finish."
@@ -189,9 +191,9 @@ External_Options() {
 ############################################
 # Initial input
 Set_Default_Values
-
 # Loop for user interaction
-while true; do
+while true;
+do
     # Display entered information for confirmation
     echo -e "- Name: ${Name}\n- Mail: ${Mail}\n- Class: ${Class_Name}\n- Namespace: ${Namespace}\n- Description: ${Description}\n"
     # Prompt user for confirmation or modification
